@@ -1,0 +1,12 @@
+<section class="pokemon-data-section">
+    
+    <p class="pokemon-data-section__subtitle">
+        <span *ngIf="pokemonStats.length > 1; else singleStat"> Statistics </span>
+        <ng-template #singleStat> Statistic </ng-template>
+    </p>
+
+    <div class="pokemon-data-section__data">
+        <p *ngFor="let statData of pokemonStats" class="capitalize">{{statData.stat.name}}: <strong>{{statData.base_stat}}</strong></p>
+    </div>
+
+</section>

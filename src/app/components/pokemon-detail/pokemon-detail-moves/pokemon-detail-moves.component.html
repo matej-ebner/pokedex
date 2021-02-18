@@ -1,0 +1,46 @@
+<section class="pokemon-data-section">
+    <p class="pokemon-data-section__subtitle">
+        <ng-container *ngIf="selectedMoveName === undefined;else selectedMoveNameParag">
+            <span *ngIf="pokemonMoves.length > 1; else singleMove"> Moves </span>
+            <ng-template #singleMove> Move </ng-template>
+        </ng-container>
+
+        <ng-template #selectedMoveNameParag>
+            Selected move <strong class="capitalize">{{ selectedMoveName }}</strong>
+        </ng-template>
+    </p>
+
+    <div class="pokemon-data-section__data">
+
+        <div *ngIf="selectedMove$ | async as selectedMoveData; else movesList" class="selected-move">
+
+            <p class="selected-move__data">
+                Accuracy: <strong>{{ selectedMoveData.accuracy ? selectedMoveData.accuracy : '-'}}</strong>
+            </p>
+            <p class="selected-move__data">
+                Power: <strong>{{ selectedMoveData.power ? selectedMoveData.power : '-'}}</strong>
+            </p>
+            <p class="selected-move__data">
+                PP: <strong>{{ selectedMoveData.pp ? selectedMoveData.pp : '-'}}</strong>
+            </p>
+            <p class="selected-move__data">
+                Priority: <strong>{{ selectedMoveData.priority ? selectedMoveData.priority : '-'}}</strong>
+            </p>
+            <button class="info-button" (click)="selectedMove$ = selectedMoveName = undefined">
+                Return to all moves
+            </button>
+        </div>
+
+        <ng-template #movesList>
+            <div class="moves-list">
+                <button *ngFor="let moveEntry of pokemonMoves" class="info-button move-detail-btn"
+                    (click)="getMove(moveEntry.move)">
+                    <span> {{ moveEntry.move.name }}</span>
+                    <px-icon-info></px-icon-info>
+                </button>
+            </div>
+        </ng-template>
+
+    </div>
+
+</section>

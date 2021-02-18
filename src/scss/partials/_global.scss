@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html,
+body {
+    font-family: $font-family;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    height: 100%;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+
+    @include mq-min($lg) {
+        font-size: 18px;
+    }
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+// Type color
+.normal-type {
+    background: $normal-type-color;
+}
+
+.fire-type {
+    background: $fire-type-color;
+}
+
+.water-type {
+    background: $water-type-color;
+}
+
+.electric-type {
+    background: $electric-type-color;
+}
+
+.grass-type {
+    background: $grass-type-color;
+}
+
+.ice-type {
+    background: $ice-type-color;
+}
+
+.fighting-type {
+    background: $fighting-type-color;
+}
+
+.poison-type {
+    background: $poison-type-color;
+}
+
+.ground-type {
+    background: $ground-type-color;
+}
+
+.flying-type {
+    background: $flying-type-color;
+}
+
+.psychic-type {
+    background: $psychic-type-color;
+}
+
+.bug-type {
+    background: $bug-type-color;
+}
+
+.rock-type {
+    background: $rock-type-color;
+}
+
+.ghost-type {
+    background: $ghost-type-color;
+}
+
+.dragon-type {
+    background: $dragon-type-color;
+}
+
+.dark-type {
+    background: $dark-type-color;
+}
+
+.steel-type {
+    background: $steel-type-color;
+}
+
+.fairy-type {
+    background: $fairy-type-color;
+}

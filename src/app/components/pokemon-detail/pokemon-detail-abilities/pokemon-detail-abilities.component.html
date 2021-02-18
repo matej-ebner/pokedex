@@ -1,0 +1,11 @@
+<section class="pokemon-data-section">
+    <p class="pokemon-data-section__subtitle">
+        <span *ngIf="pokemonAbilities.length > 1; else singleAbility"> Abilities </span>
+        <ng-template #singleAbility> Ability </ng-template>
+    </p>
+
+    <div *ngFor="let ability of pokemonAbilities" class="pokemon-data-section__data ability-details">
+        <p class="ability-details__name">{{ ability.name }}</p>
+        <p class="ability-details__description">{{ getEnglishDescription(ability) }}</p>
+    </div>
+</section>

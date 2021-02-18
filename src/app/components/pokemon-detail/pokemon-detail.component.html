@@ -1,0 +1,48 @@
+<div class="pokemon-modal">
+    <div class="pokemon-modal__overlay" (click)="pokemonsListComponent.selectedPokemon = undefined"></div>
+
+    <div class="pokemon-modal__content" [ngClass]="pokemon.types[0].type.name + '-type'">
+        <div class="pokemon-detail-btn-close-wrapper">
+            <px-icon-close (click)="pokemonsListComponent.selectedPokemon = undefined"></px-icon-close>
+        </div>
+
+        <div class="pokemon-details">
+            <p class="pokemon-details__name">{{ pokemon.name }}</p>
+            <div class="pokemon-details__image-wrapper">
+                <img class="pokemon-details__image-wrapper__image"
+                    src="{{ pokemon.sprites.other.dream_world.front_default }}" alt="{{ pokemon.name}}"
+                    onerror="this.src='../assets/images/default-pokeball.png'">
+            </div>
+        </div>
+
+        <button *ngIf="!myPokemonService.checkIsMyPokemon(pokemon);else removeMyPokemon" class="red-button"
+            (click)="myPokemonService.savePokemon(pokemon)">
+            Save pokemon
+        </button>
+
+        <ng-template #removeMyPokemon>
+            <button class="red-button" (click)="removeFromMyPokemon(pokemon)">
+                Remove from My pokemon
+            </button>
+        </ng-template>
+
+        <px-pokemon-detail-stats *ngIf="pokemon.stats.length > 0" [pokemonStats]="pokemon.stats">
+        </px-pokemon-detail-stats>
+
+        <ng-container *ngIf="pokemonData$ | async as pokemonData">
+            <px-pokemon-detail-types *ngIf="pokemonData[1].length > 0" [pokemonTypes]="pokemonData[1]">
+            </px-pokemon-detail-types>
+
+            <px-pokemon-detail-abilities *ngIf="pokemonData[2].length > 0" [pokemonAbilities]="pokemonData[2]">
+            </px-pokemon-detail-abilities>
+        </ng-container>
+
+        <px-pokemon-detail-moves *ngIf="pokemon.moves.length > 0" [pokemonMoves]="pokemon.moves">
+        </px-pokemon-detail-moves>
+
+        <div class="end-close-btn-wrapper">
+            <button class="red-button" (click)="pokemonsListComponent.selectedPokemon = undefined">Close</button>
+        </div>
+
+    </div>
+</div>

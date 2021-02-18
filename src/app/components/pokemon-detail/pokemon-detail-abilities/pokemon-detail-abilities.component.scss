@@ -1,0 +1,13 @@
+@import "~src/scss/base";
+
+.ability-details {
+    &__name {
+        font-weight: 700;
+        flex: 0 0 100%;
+        text-transform: capitalize;
+    }
+
+    &__description {
+        margin-top: 1em;
+    }
+}

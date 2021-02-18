@@ -1,0 +1,36 @@
+@import "~src/scss/base";
+
+.selected-move {
+    &__data,
+    .info-button {
+        margin-top: 0.5em;
+    }
+
+    &__data--capitalized {
+        text-transform: capitalize;
+    }
+}
+
+.moves-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.move-detail-btn {
+    margin: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+        text-transform: capitalize;
+    }
+
+    &:hover {
+        ::ng-deep px-icon-info {
+            svg {
+                color: $red;
+            }
+        }
+    }
+}

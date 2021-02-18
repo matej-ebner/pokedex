@@ -1,0 +1,97 @@
+@import "~src/scss/base";
+
+.pokemon-modal {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    z-index: 110;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+
+    &__overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100%;
+        z-index: 40;
+        background-color: rgba($white, 0.6);
+    }
+
+    &__content {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        overflow-y: auto;
+        z-index: 50;
+        padding: 1em;
+
+        @include mq-min($lg) {
+            border-radius: $common-border-radius;
+            width: 70%;
+            min-height: 70%;
+            top: 1em;
+            bottom: 1em;
+        }
+    }
+}
+
+.pokemon-detail-btn-close-wrapper {
+    text-align: right;
+
+    px-icon-close {
+        &:hover {
+            cursor: pointer;
+            color: $red;
+        }
+    }
+}
+
+.pokemon-details {
+    display: flex;
+    flex-wrap: wrap;
+    &__name {
+        text-align: center;
+        flex: 0 0 100%;
+        font-size: 1.4em;
+        font-weight: 700;
+        text-transform: capitalize;
+        margin-bottom: 2em;
+    }
+
+    &__image-wrapper {
+        flex: 0 0 100%;
+        display: inherit;
+        justify-content: center;
+
+        &__image {
+            width: 200px;
+            height: 200px;
+        }
+    }
+}
+
+.pokemon-data-section {
+    margin-top: 1em;
+
+    &__subtitle {
+        font-weight: 700;
+        font-size: 1.2em;
+    }
+
+    &__data {
+        margin-top: 1em;
+        padding: 1em;
+        background: $white;
+        border-radius: $common-border-radius;
+    }
+}
+
+.end-close-btn-wrapper {
+    margin: 2em 0;
+    text-align: center;
+}

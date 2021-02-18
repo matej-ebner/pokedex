@@ -1,0 +1,32 @@
+<div *ngIf="myPokemonsService.isMyPokemonPage && pokemons?.length === 0" class="no-my-pokemons">
+    <p class="no-my-pokemons__message"> You have no saved pokemons</p>
+</div>
+
+<ng-container *ngIf="(pokemonsListObservable$ | async) || pokemons">
+    <div *ngIf="(pokemonsDataObservable$ | async) || pokemons" class="pokemon-list">
+        <px-pokemon-card 
+            *ngFor="let pokemonData of pokemons"
+            [pokemon]="pokemonData"
+            (click)="selectedPokemon = pokemonData"
+        ></px-pokemon-card>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="!myPokemonsService.isMyPokemonPage">
+    <div class="next-previous-btn-wrapper">
+        <button *ngIf="previousPokemons" 
+            (click)="getPokemons(previousPokemons)"
+            class="red-button"
+        >
+        Previous
+        </button>
+        <button *ngIf="nextPokemons" 
+            (click)="getPokemons(nextPokemons)" 
+            class="red-button"
+        >
+        Next
+        </button>
+    </div>
+</ng-container>
+
+<px-pokemon-detail *ngIf="selectedPokemon" [pokemon]="selectedPokemon"></px-pokemon-detail>

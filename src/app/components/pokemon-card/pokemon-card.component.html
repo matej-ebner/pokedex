@@ -1,0 +1,10 @@
+<div class="pokemon-card" [ngClass]="pokemon.types[0].type.name + '-type'" (click)="pokemonDetails = true">
+    <img src="../../../../../assets/images/default-pokeball.png" 
+            class="pokemon-card__is-mine"
+            *ngIf="!myPokemonService.isMyPokemonPage && myPokemonService.checkIsMyPokemon(pokemon)">
+    <p class="pokemon-card__name">
+        {{ pokemon.name }}
+    </p>
+    <img class="pokemon-card__image" src="{{ pokemon.sprites.other.dream_world.front_default }}" alt="{{ pokemon.name}}"
+        onerror="this.src='../assets/images/default-pokeball.png'">
+</div>

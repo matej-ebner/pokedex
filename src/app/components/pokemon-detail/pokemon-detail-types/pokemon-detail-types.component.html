@@ -1,0 +1,55 @@
+<section class="pokemon-data-section">
+    <p class="pokemon-data-section__subtitle">
+        <span *ngIf="pokemonTypes.length > 1; else singleType"> Types </span>
+        <ng-template #singleType> Type </ng-template>
+    </p>
+    
+    <div *ngFor="let type of pokemonTypes" class="pokemon-data-section__data type-details">
+        <p class="type-details__name">
+            {{ type.name }}
+        </p>
+        <ul *ngIf="type.damage_relations?.double_damage_from.length > 0" class="type-details__list">
+            <strong>Double damage from</strong>
+            <li *ngFor="let doubleDamageFrom of type.damage_relations.double_damage_from">
+                {{ doubleDamageFrom.name }}
+            </li>
+        </ul>
+    
+        <ul *ngIf="type.damage_relations?.double_damage_to.length > 0" class="type-details__list">
+            <strong>Double damage from</strong>
+            <li *ngFor="let doubleDamageTo of type.damage_relations.double_damage_to">
+                {{ doubleDamageTo.name }}
+            </li>
+        </ul>
+    
+        <ul *ngIf="type.damage_relations?.half_damage_from.length > 0" class="type-details__list">
+            <strong>Half damage from</strong>
+            <li *ngFor="let halfDamageFrom of type.damage_relations.half_damage_from">
+                {{ halfDamageFrom.name }}
+            </li>
+        </ul>
+    
+        <ul *ngIf="type.damage_relations?.half_damage_to.length > 0" class="type-details__list">
+            <strong>Half damage to</strong>
+            <li *ngFor="let halfDamageTo of type.damage_relations.half_damage_to">
+                {{ halfDamageTo.name }}
+            </li>
+        </ul>
+    
+        <ul *ngIf="type.damage_relations?.no_damage_from.length > 0" class="type-details__list">
+            <strong>No damage from</strong>
+    
+            <li *ngFor="let noDamageFrom of type.damage_relations.no_damage_from">
+                {{ noDamageFrom.name }}
+            </li>
+        </ul>
+    
+        <ul *ngIf="type.damage_relations?.no_damage_to.length > 0" class="type-details__list">
+            <strong>No damage to</strong>
+            <li *ngFor="let noDamageTo of type.damage_relations.no_damage_to">
+                {{ noDamageTo.name }}
+            </li>
+        </ul>
+    
+    </div>
+</section>

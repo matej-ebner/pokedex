@@ -1,0 +1,37 @@
+@import "~src/scss/base";
+
+.no-my-pokemons {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+
+    &__message {
+        font-size: 1.3em;
+        font-weight: 700;
+    }
+}
+
+.pokemon-list {
+    margin-top: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include mq-min($lg) {
+        margin-top: 8em;
+    }
+}
+
+.next-previous-btn-wrapper {
+    padding: 2em 0 8em 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
+    button {
+        font-size: 1.2em;
+        margin: 0 0.5em;
+    }
+}

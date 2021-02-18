@@ -1,0 +1,17 @@
+<menu class="menu">
+    <p class="menu__title">Pokédex</p>
+    <div class="menu__buttons">
+        <a [routerLink]="['/']" 
+           class="menu__buttons__btn info-button" 
+           [class.menu__buttons__btn--active] = "router.url === '/'"
+        >
+        All Pokemons
+        </a>
+        <a [routerLink]="['/my-pokemon']" 
+           class="menu__buttons__btn info-button" 
+           [class.menu__buttons__btn--active] = "router.url === '/my-pokemon'"
+        >
+        My Pokemon
+        </a>
+    </div>
+</menu>

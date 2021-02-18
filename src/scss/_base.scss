@@ -1,0 +1,59 @@
+// VARIABLES
+$font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+// COLORS
+$red: #ef5350;
+$white: #ffffff;
+$black: #555555;
+$grey: #e7e7e7;
+
+$normal-type-color: #a8a77a;
+$fire-type-color: #ee8130;
+$water-type-color: #6390f0;
+$electric-type-color: #f7d02c;
+$grass-type-color: #7ac74c;
+$ice-type-color: #96d9d6;
+$fighting-type-color: #c22e28;
+$poison-type-color: #a33ea1;
+$ground-type-color: #e2bf65;
+$flying-type-color: #a98ff3;
+$psychic-type-color: #f95587;
+$bug-type-color: #a6b91a;
+$rock-type-color: #b6a136;
+$ghost-type-color: #735797;
+$dragon-type-color: #6f35fc;
+$dark-type-color: #705746;
+$steel-type-color: #b7b7ce;
+$fairy-type-color: #d685ad;
+
+// BREAKPOINTS
+$xxs: 375;
+$xs: 480;
+$sm: 544;
+$md: 768;
+$lg: 992;
+$xl: 1200;
+$xxl: 1440;
+$xxxl: 1680;
+
+// BORDER-RADIUS
+$common-border-radius: 0.5em;
+
+// MEDIA QUERIES
+@mixin mq-min($min) {
+    @media screen and (min-width: ($min/16) + em) {
+        @content;
+    }
+}
+
+@mixin mq-max($max) {
+    @media screen and (max-width: (($max - 1)/16) + em) {
+        @content;
+    }
+}
+
+@mixin mq-min-max($min, $max) {
+    @media screen and (min-width: ($min/16) + em) and (max-width: (($max - 1)/16) + em) {
+        @content;
+    }
+}

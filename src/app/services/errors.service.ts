@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { Dictionary } from "src/app/enums/dictionary.enum";
 import { SpinnerService } from "./spinner.service";
 
 @Injectable({
